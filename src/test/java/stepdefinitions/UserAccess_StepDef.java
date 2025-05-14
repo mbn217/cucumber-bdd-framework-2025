@@ -43,7 +43,37 @@ public class UserAccess_StepDef {
 
         //Verify that login url is not same as current url --> you are logged in successfully
         Assert.assertNotEquals(loginUrl , currentNewUrl);
-        driver.close();
+        Driver.closeDriver();
     }
+
+
+    @When("User enters invalid username and invalid password")
+    public void user_enters_invalid_username_and_invalid_password() {
+        SeleniumUtils.sendKeysWithActionClass(loginPage.emailInput , "test@test.com");
+        SeleniumUtils.sendKeysWithActionClass(loginPage.passwordInput, "123@school");
+    }
+    @Then("User should see an error message {string} displayed")
+    public void user_should_see_an_error_message_displayed(String expectedErrorMessage) throws InterruptedException {
+        Thread.sleep(2000);
+        String actualErrorMessage = loginPage.loginErrorMessageLabel.getText();
+        System.out.println("The actual error from UI is --> " + actualErrorMessage);
+        //Verify that the error message displayed is equal to the expected error message
+        Assert.assertTrue(expectedErrorMessage.equals(actualErrorMessage));
+    }
+    @And("User should not be logged in")
+    public void user_should_not_be_logged_in() {
+        //Verify that login url did not change from before clicking on the login button and after clicking on the login button
+        String loginUrlBefore = "http://crater.primetech-apps.com/";
+        String urlAfterLogin = driver.getCurrentUrl();
+        System.out.println("After login-->" + urlAfterLogin);
+        Assert.assertTrue(loginUrlBefore.equals(urlAfterLogin));
+        Driver.closeDriver();
+    }
+
+
+
+
+
+
 
 }

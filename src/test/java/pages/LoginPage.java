@@ -25,6 +25,9 @@ public class LoginPage {
     @FindBy(xpath = "//button[@type='submit']")
     public WebElement loginButton;
 
+    @FindBy(xpath = "//p[text()='These credentials do not match our records.']")
+    public WebElement loginErrorMessageLabel;
+
 
 
 

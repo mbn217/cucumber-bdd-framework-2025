@@ -8,16 +8,24 @@ Scenario:  User should be able to login with valid credentials
   Then User should be logged in successfully
 
 
-
-
-
-
-
-
-
 #1.	Navigate to the login page.
 #2.	Enter a valid email address “entityadmin@primetechschool.com”.
 #3.	Enter a valid password “primetech@school”.
 #4.	Click on the Login button.
 #5.	Verify the user is redirected to the dashboard.
 #6.	Verify a success message is displayed.
+
+
+
+#Scenario # 2 -- Negative Scenario
+#Cucumber reuses the steps that are already implemented
+# if there are same two steps,
+# cucumber only generates one step definition and reuses that step definition between that two steps
+
+
+Scenario: User should not be able to login with invalid email and invalid password
+  Given User is navigated to Crater login page
+  When User enters invalid username and invalid password
+  And User clicks on crater application Login button
+  Then User should see an error message "These credentials do not match our records." displayed
+  And User should not be logged in
