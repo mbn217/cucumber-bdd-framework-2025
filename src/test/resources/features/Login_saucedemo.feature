@@ -1,4 +1,4 @@
-@ignore
+@saucedemo
 Feature: Login to sauce demo
   As a user I should be able to login using valid credentials
 
