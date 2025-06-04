@@ -8,6 +8,7 @@ import org.openqa.selenium.WebElement;
 import pages.DashboardPage;
 import pages.ItemsPage;
 import pages.LoginPage;
+import utilities.ConfigurationReader;
 import utilities.Driver;
 import utilities.SeleniumUtils;
 
@@ -20,9 +21,9 @@ public class AddItem_StepDef {
     @Given("User is logged in successfully")
     public void user_is_logged_in_successfully() {
         //navigate to crater, login, enter user/pass/click on login
-        driver.get("http://crater.primetech-apps.com/login");
-        SeleniumUtils.sendKeysWithActionClass(loginPage.emailInput , "entityadmin@primetechschool.com");
-        SeleniumUtils.sendKeysWithActionClass(loginPage.passwordInput, "primetech@school");
+        driver.get(ConfigurationReader.getPropertyValue("crater-url"));
+        SeleniumUtils.sendKeysWithActionClass(loginPage.emailInput , ConfigurationReader.getPropertyValue("username"));
+        SeleniumUtils.sendKeysWithActionClass(loginPage.passwordInput, ConfigurationReader.getPropertyValue("password"));
         loginPage.loginButton.click();
 
 

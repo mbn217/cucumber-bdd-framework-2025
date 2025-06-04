@@ -14,7 +14,7 @@ public class ConfigurationReader {
     //we need to make sure that the properties are available before main method gets executed
 
     static {
-        String path = "src/test/resource/configuration.properties";//the path to the properties file
+        String path = "src/test/resources/configuration.properties";//the path to the properties file
 
         try {
             FileInputStream fileInputStream  = new FileInputStream(path);// loading the file

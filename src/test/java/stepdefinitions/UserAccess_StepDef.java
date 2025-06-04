@@ -8,6 +8,7 @@ import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.devtools.v85.log.Log;
 import pages.LoginPage;
+import utilities.ConfigurationReader;
 import utilities.Driver;
 import utilities.SeleniumUtils;
 
@@ -21,15 +22,15 @@ public class UserAccess_StepDef {
     @Given("User is navigated to Crater login page")
     public void user_is_navigated_to_crater_login_page() {
         //navigate to crater login page
-        driver.get("http://crater.primetech-apps.com/");
+        driver.get(ConfigurationReader.getPropertyValue("crater-url"));
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
     }
     @When("User enters valid username and valid password")
     public void user_enters_valid_username_and_valid_password() {
         //loginPage.emailInput.sendKeys("entityadmin@primetechschool.com");
         //loginPage.passwordInput.sendKeys("primetech@school");
-        SeleniumUtils.sendKeysWithActionClass(loginPage.emailInput , "entityadmin@primetechschool.com");
-        SeleniumUtils.sendKeysWithActionClass(loginPage.passwordInput, "primetech@school");
+        SeleniumUtils.sendKeysWithActionClass(loginPage.emailInput , ConfigurationReader.getPropertyValue("username"));
+        SeleniumUtils.sendKeysWithActionClass(loginPage.passwordInput, ConfigurationReader.getPropertyValue("password"));
 
     }
     @And("User clicks on crater application Login button")
