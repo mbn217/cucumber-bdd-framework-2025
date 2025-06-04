@@ -1,4 +1,4 @@
-@smoke
+@smoke @crater
 Feature: User Access Management
   As a user I want to login to my crater Application
 

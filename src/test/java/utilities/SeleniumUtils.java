@@ -6,6 +6,8 @@ import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 
+import java.util.List;
+
 public class SeleniumUtils {
 
     /**
@@ -40,5 +42,25 @@ public class SeleniumUtils {
         //send the keys to the element
         actions.sendKeys(element , input).build().perform();
     }
+
+    /**
+     * This method will check if the item is in the table
+     * @param elementList the list of elements that are in the table
+     * @param itemNameToSearchFor the item name that we are looking for
+     * @return true if the item is in the table, false if the item is not in the table
+     */
+    public static boolean isItemPartOfListOfItems(String itemNameToSearchFor, List<WebElement> elementList){
+        for(WebElement item : elementList){
+            //System.out.println("=======" + item.getText());
+            //if the item text is equal to the item name that we are looking for
+            if(item.getText().equals(itemNameToSearchFor)){
+                //return trie if the item is part of the list
+                return true;
+            }
+        }
+        //if the item is not in the table
+        return false;
+    }
+
 
 }

@@ -43,7 +43,7 @@ public class UserAccess_StepDef {
 
         //Verify that login url is not same as current url --> you are logged in successfully
         Assert.assertNotEquals(loginUrl , currentNewUrl);
-        Driver.closeDriver();
+        //Driver.closeDriver(); adding this line to the hooks inside afterScenario
     }
 
 
@@ -67,7 +67,7 @@ public class UserAccess_StepDef {
         String urlAfterLogin = driver.getCurrentUrl();
         System.out.println("After login-->" + urlAfterLogin);
         Assert.assertTrue(loginUrlBefore.equals(urlAfterLogin));
-        Driver.closeDriver();
+
     }
 
 
