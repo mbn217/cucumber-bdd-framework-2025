@@ -11,7 +11,7 @@ import org.junit.runner.RunWith;
                 plugin = {"pretty" , "html:target/primetech-report-2025.html",
                 "json:target/primetech-report-2025.json",
                 "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"},
-                tags = "@crater"
+                tags = "@db-test"
         // or and
         // @A and not @B  → Run all with @A but exclude those with @B.
         // @A or @B and not @C → Run @A or @B scenarios, but not those that are @C.
