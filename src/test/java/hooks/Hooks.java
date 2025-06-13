@@ -11,7 +11,7 @@ public class Hooks {
 
 
 
-    @Before("@not calculator")
+    @Before("not @calculator")
     public void beforeScenario(){
         System.out.println("We are running before each scenario");
         Driver.getDriver().manage().window().maximize();
