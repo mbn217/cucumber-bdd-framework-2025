@@ -11,7 +11,7 @@ public class Hooks {
 
 
 
-    @Before
+    @Before("@not calculator")
     public void beforeScenario(){
         System.out.println("We are running before each scenario");
         Driver.getDriver().manage().window().maximize();
@@ -26,7 +26,7 @@ public class Hooks {
 //        Driver.getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 //    }
 
-    @After
+    @After("@not calculator")
     public void afterScenario(Scenario scenario){
         System.out.println("We are running after each scenario");
         if(scenario.isFailed()){
@@ -41,10 +41,10 @@ public class Hooks {
 //        System.out.println("We are running before each step");
 //    }
 
-    @AfterStep
-    public void afterStep() throws InterruptedException {
-        Thread.sleep(3000);
-    }
+//    @AfterStep
+//    public void afterStep() throws InterruptedException {
+//        Thread.sleep(3000);
+//    }
 
 
 
