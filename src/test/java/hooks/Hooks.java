@@ -26,7 +26,7 @@ public class Hooks {
 //        Driver.getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 //    }
 
-    @After("@not calculator")
+    @After("not @calculator")
     public void afterScenario(Scenario scenario){
         System.out.println("We are running after each scenario");
         if(scenario.isFailed()){
